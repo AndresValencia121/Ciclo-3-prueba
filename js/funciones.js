@@ -5,13 +5,32 @@ function consultar() {
                         url          : 'https://g23bfb99f5036e6-bdpais.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/planeta/planeta',
                         type         : 'GET',
                         dataType     : 'json',
+                        // success      :  function(json){
+                        //                     $("#idDivConsulta").empty();
+                        //                     for (i=0 ; i < json.items.length; i++){
+                        //                         $("#idDivConsulta").append(json.items[i].codigo + json.items[i].nombre + " ");
+                        //                     }
+                        //                     console.log(json)
+                        //                 },
+
                         success      :  function(json){
-                                            $("#idDivConsulta").empty();
-                                            for (i=0 ; i < json.items.length; i++){
-                                                $("#idDivConsulta").append(json.items[i].codigo + json.items[i].nombre + " ");
-                                            }
-                                            console.log(json)
-                                        },
+
+                            $("#idDivConsulta").empty();
+                            $("#idDivConsulta").append("<table>");
+                            $("#idDivConsulta").append("<caption><h3>Tabla de Planetas</h3></caption>");
+                            $("#idDivConsulta").append("<tr><th>Codigo </th><th>Descripción</th></tr>");
+                            for (i=0; i < json.items.length; i++){
+                                $("#idDivConsulta").append("<tr>");
+                                $("#idDivConsulta").append("<td>" + json.items[i].codigo + "</td>");
+                                $("#idDivConsulta").append("<td>" + json.items[i].nombre + "</td>");
+                                $("#idDivConsulta").append("</tr>");
+                            }
+                            $("#idDivConsulta").append("</table>");
+
+                            console.log(json)
+                            },
+
+
                         error        :   function(xhr,status){
                                             console.log(xhr)
                                         }
@@ -82,7 +101,7 @@ function actualizar() {
 
     var planeta,datosEnvio;
 
-    planeta      = {codigo : 330, planeta: 'STAR X'};
+    planeta      = {codigo : 14, nombre: 'STAR X'};
     datosEnvio   = JSON.stringify(planeta);
 
     $.ajax (
@@ -103,4 +122,36 @@ function actualizar() {
                             }
         }
     );
+}
+
+
+                                        
+function consultarId() {
+
+    var codigo =$("#idCodigo").val();
+
+    $.ajax (
+                {
+
+                    url          : 'https://g23bfb99f5036e6-bdpais.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/planeta/planeta/' + codigo ,
+                    type         : 'GET',
+                    dataType     : 'json',
+
+                    success      :  function(json){
+                                        $("#idDivConsulta").empty();
+                                        for (i=0; i < json.items.length; i++){
+                                            $("#idDivConsulta").append(json.items[i].codigo + json.items[i].nombre + " ");
+                                        }
+                                        console.log(json)
+                                    },
+                    error       :   function(xhr,status){
+                                        console.log(xhr)
+                                    },
+
+
+
+                }
+            );
+
+
 }

@@ -8,6 +8,16 @@
     <script src="js/funciones.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+    <style>
+        table, th, td {
+          border:1px solid black;
+          padding: 3px;
+          border-style: double;
+          }
+
+        
+    </style>
+
 </head>
 <body>
     <h2>Cliente Ajax petición HTTP</h2>
@@ -16,6 +26,9 @@
     <button onclick="insertar()"> Agregar </button>
     <button onclick="borrar()"> Borrar </button>
     <button onclick="actualizar()"> Actualizar </button>
+    <button onclick="consultarId()"> Consultar por Id </button>
+    <input type="number" id="idCodigo" placeholder="Codigo Planeta"> </input>
+
 
     <div id="idDivConsulta">
 
