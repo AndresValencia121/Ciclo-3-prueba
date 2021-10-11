@@ -18,7 +18,7 @@ function consultar() {
                             $("#idDivConsulta").empty();
                             $("#idDivConsulta").append("<table>");
                             $("#idDivConsulta").append("<caption><h3>Tabla de Planetas</h3></caption>");
-                            $("#idDivConsulta").append("<tr><th>Codigo </th><th>Descripción</th></tr>");
+                            $("#idDivConsulta").append("<tr><th>Codigo</th><th>Descripción</th></tr>");
                             for (i=0; i < json.items.length; i++){
                                 $("#idDivConsulta").append("<tr>");
                                 $("#idDivConsulta").append("<td>" + json.items[i].codigo + "</td>");
