@@ -51,7 +51,7 @@ function insertar() {
     var cliente;
 
     cliente = {
-        //id: $("#idCliente").val(),
+        id: $("#idCliente").val(),
         name:$("#nameCliente").val(),
         email:$("#emailCliente").val(),
         age:$("#ageCliente").val(),
@@ -67,7 +67,7 @@ function insertar() {
 
             success      :  function(response){
                                console.log(response);
-                               //$("#idCliente").val("");
+                               $("#idCliente").val("");
                                $("#nameCliente").val("");
                                $("#emailCliente").val("");
                                $("#ageCliente").val("");
@@ -159,7 +159,7 @@ function actualizar() {
                                         
 function consultarId() {
 
-    var codigo =$("#idCliente").val();
+    var codigo =$("#idConsulta").val();
 
     $.ajax (
                 {
@@ -195,6 +195,7 @@ function consultarId() {
                                         $("#nameCliente").val("");
                                         $("#emailCliente").val("");
                                         $("#ageCliente").val("");
+                                        $("#idConsulta").val("");
                                     },
                     error       :   function(xhr,status){
                                         console.log(xhr)

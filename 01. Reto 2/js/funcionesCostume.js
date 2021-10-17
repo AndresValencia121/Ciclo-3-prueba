@@ -159,7 +159,7 @@ function actualizar() {
                                         
 function consultarId() {
 
-    var codigo =$("#idDisfraz").val();
+    var codigo =$("#idConsulta").val();
 
     $.ajax (
                 {
